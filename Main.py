@@ -100,4 +100,4 @@ book_list =Listbox(mainWin,height=15,width=30)
 book_list.grid(row= 2, column = 0,columnspan=3, rowspan = 5)
 booklist.bind('<<ListboxSelect>>',display)
 
-name_label =Label(mainWin, text = 'Name:')¢›
+name_label =Label(mainWin, text = 'Name:')
