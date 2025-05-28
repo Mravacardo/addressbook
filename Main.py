@@ -60,7 +60,7 @@ def display(event):
         contact+="E-MAIL   : "+details[2]+"\n"
         contact+="BIRTHDAY : "+details[3]+"\n"
 
-    lbl=label(newWindow)
+    lbl=Label(newWindow)
     lbl.grid(row=0,column=0)
     lbl.configure(text=contact)
 
@@ -71,7 +71,7 @@ def reset():
     bookName.configure(text='My Address Book')
 
 def save():
-    fout=asksaveasfile(defaultextention=".txt")
+    fout=asksaveasfile(defaultextension=".txt")
     if fout:
         print(myAddressBook,file=fout)
         reset()
@@ -98,6 +98,43 @@ open_button.grid(row = 0, column = 3,pady = 10)
 
 book_list =Listbox(mainWin,height=15,width=30)
 book_list.grid(row= 2, column = 0,columnspan=3, rowspan = 5)
-booklist.bind('<<ListboxSelect>>',display)
+book_list.bind('<<ListboxSelect>>',display)
 
 name_label =Label(mainWin, text = 'Name:')
+name_label.grid(row= 2, column = 3)
+name =Entry(mainWin)
+name.grid(row = 2, column = 4,padx=5)
+
+address_label =Label(mainWin, text = 'Address :')
+address_label.grid(row = 3, column = 3)
+address =Entry(mainWin)
+address.grid(row = 3, column = 4,padx=5)
+
+mobile_label =Label(mainWin, text = 'Mobile:')
+mobile_label.grid(row = 4, column = 3)
+mobile =Entry(mainWin)
+mobile.grid(row = 4, column = 4,padx=5)
+
+email_label =Label(mainWin, text = 'Email:')
+email_label.grid(row = 5, column = 3)
+email =Entry(mainWin)
+email.grid(row = 5, column = 4,padx=5)
+
+birthday_label =Label(mainWin, text = 'Birthday:')
+birthday_label.grid(row = 6, column = 3)
+birthday =Entry(mainWin)
+birthday.grid(row =6, column = 4,padx=5)
+
+Edit_button = Button(mainWin, text = 'Edit',width=10,command=edit)
+Edit_button.grid(row = 7, column = 0, padx = 12,pady=12)
+
+delete_button =Button(mainWin, text = 'Delete' ,width=10, command=delete)
+delete_button.grid(row = 7, column = 1,pady=12)
+
+add_button =Button(mainWin, text = 'Update/Add',command=update)
+add_button.grid(row = 7, column = 4,pady=12)
+
+save_button = Button(mainWin, text='Save',width=35,command=save)
+save_button.grid(row = 8, column = 1,pady = 10,columnspan=3)
+
+mainWin.mainloop()
